@@ -1,6 +1,7 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { DollarSign, ShoppingCart, Users } from "lucide-react"
 import { ChartAreaInteractive } from "@/components/graph"
+import {InvoiceTable} from "@/components/invoiceTable.tsx";
 
 export default function Dashboard() {
     return (
@@ -43,6 +44,10 @@ export default function Dashboard() {
 
             <div className="flex-1 h-[400px]">
                 <ChartAreaInteractive />
+            </div>
+            <div className="flex flex-col gap-6">
+
+                <InvoiceTable />
             </div>
         </div>
     )
