@@ -13,7 +13,6 @@ import Users from "@/assets/pages/Users.tsx"
 function App() {
     return (
         <AuthProvider>
-            <BrowserRouter>
                 <Routes>
                     {/* Public route */}
                     <Route path="/login" element={<Login />} />
@@ -30,7 +29,6 @@ function App() {
                         </Route>
                     </Route>
                 </Routes>
-            </BrowserRouter>
         </AuthProvider>
     )
 }
