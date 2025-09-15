@@ -2,30 +2,40 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { AuthProvider } from "./context/AuthContext"
 import PrivateRoute from "./components/PrivateRoute"
 
-import Login from "@/assets/pages/Login.tsx"
-import Layout from "@/assets/pages/layout.tsx"
+import Login from "./features/auth/Login.tsx"
+import Layout from "./components/Layout.tsx"
 import Dashboard from "@/assets/pages/Dashboard.tsx"
 import Stores from "@/assets/pages/Stores.tsx"
 import Products from "@/assets/pages/Products.tsx"
 import Orders from "@/assets/pages/Orders.tsx"
 import Users from "@/assets/pages/Users.tsx"
+import Public from "./components/Public.tsx"
+import RequireAuth from "./features/auth/RequireAuth.tsx"
+import Welcome from "./features/auth/Welcome.tsx"
 
 function App() {
     return (
         <AuthProvider>
-                <Routes>
-                    {/* Public route */}
+                {/* <Routes>
                     <Route path="/login" element={<Login />} />
 
-                    {/* Protected routes */}
                     <Route element={<PrivateRoute />}>
                         <Route element={<Layout />}>
-                            {/* Dashboard is inside Layout */}
                             <Route path="/" element={<Dashboard />} />
                             <Route path="/stores" element={<Stores />} />
                             <Route path="/products" element={<Products />} />
                             <Route path="/orders" element={<Orders />} />
                             <Route path="/users" element={<Users />} />
+                        </Route>
+                    </Route>
+                </Routes> */}
+                <Routes>
+                    <Route element={<Layout />}>
+                        <Route index element={<Public />} />
+                        <Route path="login" element={<Login />} />
+                    </Route>
+                        <Route element={<RequireAuth />}>
+                            <Route path="welcome" element={<Welcome />}>
                         </Route>
                     </Route>
                 </Routes>
