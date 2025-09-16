@@ -12,7 +12,6 @@ import { Input } from "@/components/ui/input"
 import { useDispatch } from "react-redux"
 import { setCredentials } from "./authSlice"
 import { useLoginMutation } from "./authApiSlice"
-import { Spinner } from '@/components/ui/shadcn-io/spinner';
 
 
 export default function Login({ className, ...props }: React.ComponentProps<"form">) {
@@ -39,7 +38,6 @@ export default function Login({ className, ...props }: React.ComponentProps<"for
         try {
             const userData = await login({ user, pwd }).unwrap()
             dispatch(setCredentials({ ...userData, user }))
-            console.log("userData", userData)
             setUser("")
             setPwd("")
             navigate("/dashboard")
@@ -61,7 +59,7 @@ export default function Login({ className, ...props }: React.ComponentProps<"for
 
     const handlePwdInput = (e: React.ChangeEvent<HTMLInputElement>) => setPwd(e.target.value)
 
-    const content = isLoading ? <Spinner /> : (<div className="grid min-h-svh lg:grid-cols-2">
+    const content = isLoading ? <h1>Loading ...</h1> : (<div className="grid min-h-svh lg:grid-cols-2">
         <div className="flex flex-col gap-4 p-6 md:p-10">
             <div className="flex justify-center gap-2 md:justify-start">
                 <a href="#" className="flex items-center gap-2 font-medium">
@@ -91,7 +89,7 @@ export default function Login({ className, ...props }: React.ComponentProps<"for
                     <Label htmlFor="email">Email</Label>
                     <Input
                         id="email"
-                        // type="email"
+                        type="email"
                         placeholder="m@example.com"
                         required
                         value={user}

@@ -29,9 +29,9 @@ export default function Stores() {
         // Simuler un appel API
         setTimeout(() => {
             setStores([
-                { id: 1, name: "TechForge Cotonou", location: "Cotonou", products: 120, status: "Active" },
-                { id: 2, name: "TechForge Calavi", location: "Calavi", products: 80, status: "Inactive" },
-                { id: 3, name: "TechForge Porto-Novo", location: "Porto-Novo", products: 200, status: "Active" },
+                { id: 1, name: "Mayfair Cotonou", location: "Cotonou", products: 120, status: "Active" },
+                { id: 2, name: "Mayfair Calavi", location: "Calavi", products: 80, status: "Inactive" },
+                { id: 3, name: "Mayfair Porto-Novo", location: "Porto-Novo", products: 200, status: "Active" },
             ])
             setLoading(false)
         }, 1500)

@@ -4,11 +4,11 @@ import * as React from "react"
 import {
     BookOpen,
     Command,
-    Frame,
-    LifeBuoy,
-    PieChart,
+    // Frame,
+    // LifeBuoy,
+    // PieChart,
     Send,
-    Settings2,
+    // Settings2,
     SquareTerminal,
     Store,
     ShoppingCart,
@@ -60,20 +60,20 @@ const data = {
             icon: BookOpen,
             children: [
                 { title: "List", url: "/orders/list" },
-                { title: "Details", url: "/orders/details" },
+                // { title: "Details", url: "/orders/details" },
             ],
         },
         { title: "Users", url: "/users", icon: Users },
-        { title: "Settings", url: "/settings", icon: Settings2 },
+        // { title: "Settings", url: "/settings", icon: Settings2 },
     ],
     navSecondary: [
-        { title: "Support", url: "/support", icon: LifeBuoy },
+        // { title: "Support", url: "/support", icon: LifeBuoy },
         { title: "Logout", url: "/logout", icon: Send },
     ],
-    projects: [
-        { name: "Store A", url: "/stores/1", icon: Frame },
-        { name: "Store B", url: "/stores/2", icon: PieChart },
-    ],
+    // projects: [
+    //     { name: "Store A", url: "/stores/1", icon: Frame },
+    //     { name: "Store B", url: "/stores/2", icon: PieChart },
+    // ],
 }
 
 function NavMain({ items }: { items: NavItem[] }) {
@@ -209,7 +209,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
             <SidebarContent>
                 <NavMain items={data.navMain} />
-                <NavProjects projects={data.projects} />
+                <NavProjects projects={[]} /> {/* data.projects */}
                 <NavSecondary items={data.navSecondary} />
             </SidebarContent>
 

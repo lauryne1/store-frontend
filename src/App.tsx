@@ -33,10 +33,11 @@ function App() {
                     <Route element={<Layout />}>
                         <Route index element={<Public />} />
                         <Route path="login" element={<Login />} />
-                    </Route>
                         <Route element={<RequireAuth />}>
+                            <Route path="dashboard" element={<Dashboard />} />
                             <Route path="welcome" element={<Welcome />}>
                         </Route>
+                    </Route>
                     </Route>
                 </Routes>
         </AuthProvider>

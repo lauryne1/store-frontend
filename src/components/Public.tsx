@@ -17,57 +17,69 @@ export default function Public() {
   ]
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-gray-50">
       {/* HEADER */}
-      <header className="flex justify-between items-center px-6 py-4 shadow bg-white">
-        <h1 className="text-xl font-bold">MyStore</h1>
+      <header className="flex justify-between items-center px-8 py-4 bg-white shadow-sm">
+        <h1 className="text-2xl font-bold text-blue-500">MyStore</h1>
         <div className="flex gap-2 w-1/3">
-          <Input placeholder="Search for a product..." />
-          <Button>Search</Button>
+          <Input placeholder="Search products..." className="rounded-lg" />
+          <Button className="bg-sky-400 hover:bg-sky-500 text-white rounded-lg">
+            Search
+          </Button>
         </div>
         <div className="flex gap-4 items-center">
-          <ShoppingCart className="w-6 h-6 cursor-pointer" />
+          <ShoppingCart className="w-6 h-6 text-sky-500 cursor-pointer" />
           {isLoggedIn ? (
-            <Button variant="outline" onClick={() => setIsLoggedIn(false)}>
+            <Button
+              variant="outline"
+              onClick={() => setIsLoggedIn(false)}
+              className="border-sky-400 text-sky-500 hover:bg-sky-100 rounded-lg"
+            >
               <User className="mr-2 w-4 h-4" /> Logout
             </Button>
           ) : (
-            <Button onClick={() => setIsLoggedIn(true)}>
+            <Button
+              onClick={() => setIsLoggedIn(true)}
+              className="bg-sky-400 hover:bg-sky-500 text-white rounded-lg"
+            >
               <User className="mr-2 w-4 h-4" /> Login
             </Button>
           )}
         </div>
       </header>
 
-      <div className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-16 text-center">
-        <h2 className="text-3xl font-bold mb-2">Welcome to MyStore</h2>
-        <p className="text-lg">Discover our best deals and promotions</p>
+      {/* BANNER */}
+      <div className="bg-gradient-to-r from-sky-300 to-green-200i text-white py-20 text-center shadow-inner">
+        <h2 className="text-4xl font-bold mb-3">Welcome </h2>
+        <p className="text-lg opacity-90">Discover our best deals and promotions</p>
       </div>
 
       {/* PRODUCTS */}
-      <main className="flex-1 p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <main className="flex-1 p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {products.map((product) => (
-          <Card key={product.id} className="shadow-md hover:shadow-lg transition">
-            <CardHeader>
-              <img src={product.image} alt={product.name} className="rounded-md" />
+          <Card key={product.id} className="shadow-md hover:shadow-lg transition rounded-xl">
+            <CardHeader className="flex justify-center">
+              <img src={product.image} alt={product.name} className="rounded-lg w-full" />
             </CardHeader>
-            <CardContent>
-              <CardTitle>{product.name}</CardTitle>
+            <CardContent className="text-center">
+              <CardTitle className="mb-2">{product.name}</CardTitle>
               <p className="text-gray-600">{product.price}</p>
-              <Button className="mt-2 w-full">Add to cart</Button>
+              <Button className="mt-4 w-full bg-sky-400 hover:bg-sky-500 text-white rounded-lg">
+                Add to Cart
+              </Button>
             </CardContent>
           </Card>
         ))}
       </main>
 
       {/* FOOTER */}
-      <footer className="bg-gray-100 text-center py-4 text-sm text-gray-600">
+      <footer className="bg-white border-t text-center py-4 text-sm text-gray-500">
         © 2025 MyStore – Terms | Privacy | Contact
       </footer>
 
-      {/* LINK TO LOGIN */}
+      {/* LOGIN LINK */}
       <div className="text-center py-4">
-        <Link to="/login" className="text-blue-600 hover:underline">
+        <Link to="/login" className="text-sky-500 hover:underline font-medium">
           Go to Login Page
         </Link>
       </div>

@@ -4,9 +4,9 @@ export const authApiSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
         login: builder.mutation({
             query: credentials => ({
-                url: '/auth',
+                url: '/api/token/',
                 method: 'POST',
-                body: { ...credentials }
+                body: { "username": credentials.user, "password": credentials.pwd }
             })
         }), 
     })
