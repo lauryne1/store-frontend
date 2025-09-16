@@ -24,6 +24,7 @@ type Store = {
 export default function Stores() {
     const [stores, setStores] = useState<Store[]>([])
     const [loading, setLoading] = useState(true)
+    console.log ('stores')
 
     useEffect(() => {
         // Simuler un appel API

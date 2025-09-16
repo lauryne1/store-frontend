@@ -4,6 +4,7 @@ import PrivateRoute from "./components/PrivateRoute"
 
 import Login from "./features/auth/Login.tsx"
 import Layout from "./components/Layout.tsx"
+import AdminLayout from "./components/AdminLayout.tsx"
 import Dashboard from "@/assets/pages/Dashboard.tsx"
 import Stores from "@/assets/pages/Stores.tsx"
 import Products from "@/assets/pages/Products.tsx"
@@ -36,8 +37,14 @@ function App() {
                         <Route element={<RequireAuth />}>
                             <Route path="dashboard" element={<Dashboard />} />
                             <Route path="welcome" element={<Welcome />}>
+
                         </Route>
                     </Route>
+                    <Route element={<AdminLayout />}>
+                        <Route path="stores" element={<Stores />} />   
+                        <Route path="products" element={<Products />} /> 
+                    </Route>
+
                     </Route>
                 </Routes>
         </AuthProvider>

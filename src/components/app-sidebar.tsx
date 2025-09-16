@@ -50,16 +50,16 @@ const data = {
             title: "Products",
             icon: ShoppingCart,
             children: [
-                { title: "List", url: "/products/list" },
-                { title: "Create", url: "/products/create" },
-                { title: "Edit", url: "/products/edit" },
+                // { title: "List", url: "/products/list" },
+                // { title: "Create", url: "/products/create" },
+                // { title: "Edit", url: "/products/edit" },
             ],
         },
         {
             title: "Orders",
             icon: BookOpen,
             children: [
-                { title: "List", url: "/orders/list" },
+                // { title: "List", url: "/orders/list" },
                 // { title: "Details", url: "/orders/details" },
             ],
         },
